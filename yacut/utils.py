@@ -1,14 +1,14 @@
 import secrets
 
-from settings import GEN_LEN_CUSTOM_ID, ALLOWED_CHARACTERS as ALLCHAR
-import random
+from settings import ALLOWED_CHARACTERS as ALLCHAR
+from settings import GEN_LEN_CUSTOM_ID
+from yacut.models import URLMap
 
 from . import db
-from yacut.models import URLMap
 
 
 def get_unique_short_id(len_symbols=GEN_LEN_CUSTOM_ID):
-    return ''.join(secrets.choice(ALLCHAR) for _ in range(len_symbols))
+    return "".join(secrets.choice(ALLCHAR) for _ in range(len_symbols))
 
 
 def create_url_map(original_link, custom_id=None):
