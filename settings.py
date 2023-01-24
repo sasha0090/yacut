@@ -3,6 +3,7 @@ import string
 
 MAX_LEN_USER_CUSTOM_ID = 16
 GEN_LEN_CUSTOM_ID = 6
+CUSTOM_ID_REGEXP = "[0-9A-Za-z]*"
 
 ALLOWED_CHARACTERS = (
     string.ascii_lowercase + string.ascii_uppercase + string.digits

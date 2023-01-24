@@ -2,7 +2,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import URL, DataRequired, Length, Regexp
 
-from settings import MAX_LEN_USER_CUSTOM_ID, TEXT_INVALID_NAME, TEXT_NOT_URL
+from settings import (
+    CUSTOM_ID_REGEXP,
+    MAX_LEN_USER_CUSTOM_ID,
+    TEXT_INVALID_NAME,
+    TEXT_NOT_URL,
+)
 
 
 class CutForm(FlaskForm):
@@ -19,7 +24,7 @@ class CutForm(FlaskForm):
         validators=[
             Length(0, MAX_LEN_USER_CUSTOM_ID),
             Regexp(
-                "[0-9A-Za-z]*",
+                CUSTOM_ID_REGEXP,
                 message=TEXT_INVALID_NAME,
             ),
         ],
